@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style
+        TargetType="TextBox"
+        x:Key="TextBoxTheme"
+        >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border CornerRadius="10" Background="#353340" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                        <Grid>
+                            <Rectangle StrokeThickness="1"></Rectangle>
+                            <TextBox Margin="1" Text="{TemplateBinding Text}" BorderThickness="0" Background="Transparent"
+                                     VerticalContentAlignment="Center" Padding="5" Foreground="#CFCFCF" x:Name="TextBoxForWord"></TextBox>
+
+                            <TextBlock IsHitTestVisible="False" Text="Enter word here." VerticalAlignment="Center" HorizontalAlignment="Left"
+                                       Margin="10,0,0,0" FontSize="11" Foreground="DarkGray" Grid.Column="1"/>
+
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+</ResourceDictionary>

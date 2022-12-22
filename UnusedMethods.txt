@@ -1,0 +1,45 @@
+﻿//string json = @FileName;
+            // return JsonConvert.DeserializeObject<ObservableCollection<T>>(FileName);
+
+            // Такой костыль потому что по другому не работает
+
+            //collection = JsonConvert.DeserializeObject<ObservableCollection<T>>(json);
+            //collection = JsonConvert.DeserializeObject<ObservableCollection<T>>(json); // DeserializeObject<ObservableCollection<T>>(FileName);
+            //return collection;
+            //JsonSerializer serializer = new JsonSerializer();
+            //serializer.Converters.Add(new JavaScriptDateTimeConverter());
+            //serializer.NullValueHandling = NullValueHandling.Ignore;
+
+            //using (StreamReader sr = new StreamReader(FileName))
+            //using (JsonReader reader = new JsonTextReader(sr))
+            //{
+            //    return (ObservableCollection<T>)serializer.Deserialize(reader);
+            //}
+
+            /// <summary>
+        /// Когда товары отправляются, то оформляются документы:
+        /// 1. доверенность на представителя грузополучателя(покупателя);
+        /// 2. товарный чек;
+        /// 3. путевой лист.
+        /// </summary>
+        /// <param name="FileName"> Название файла, в который сохранятся документы </param>
+        /// <param name="SelectedOrder"> Выбранный заказ, для которого нужны документы </param>
+        //public static void MakeChecksForOrder(string FileName, Order SelectedOrder, int checkNumber)
+        //{
+        //    //System.IO.File.AppendAllText(path, text); - ANALOG
+        //    if (SelectedOrder != null) // Проверка на существование выбранного заказа
+        //    {
+        //        using (StreamWriter file = new StreamWriter(FileName))
+        //        {
+        //            file.Write("Доверенность на представителя бла бла бла ФИО оператора; " + "\n");
+        //            file.Write("Товарный чек №" + checkNumber + "\n" +
+        //            "Цена = " + SelectedOrder.Price + "\n" +
+        //            "Номер заказа = " + SelectedOrder.OrderNumber + "\n" +
+        //            "Место назначения = " + SelectedOrder.OrderDestination.Name + "\n" +
+        //            "Место отправления = " + SelectedOrder.OrderPlaceOfDeparture.Name + "\n" +
+        //            "Категория товара: " + SelectedOrder.OrderCategory.Name + "\n" +
+        //            "Вид транспорта: " + SelectedOrder.OrderTransport.Name);
+        //            file.Close(); // Закрытие файла (сохранение)
+        //        }
+        //    }
+        //}

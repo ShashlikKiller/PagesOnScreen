@@ -1,0 +1,20 @@
+﻿<Page x:Class="PagesOnScreen.View.StatusBar"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PagesOnScreen.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="19" d:DesignWidth="300"
+      >
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBox Name="TextBoxTime" Text="{Binding StatusTime}" BorderThickness="0" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox Text="{Binding Title}" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0" Grid.Row="0" Grid.Column="0" Height="19"/>
+    </Grid>
+</Page>

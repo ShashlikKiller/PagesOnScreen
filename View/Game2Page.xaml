@@ -1,0 +1,53 @@
+﻿<Page x:Class="PagesOnScreen.View.Game2Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PagesOnScreen.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="660" d:DesignWidth="330"
+      Title="Game2Page">
+
+    <Grid Background="Wheat" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Text="Слово" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="Перевод" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="Перевод правильный?" VerticalAlignment="Center"/>
+        <StackPanel Grid.Row="4" Grid.Column="0" VerticalAlignment="Bottom" Margin="20">
+            <DockPanel Margin="20,0,0,0">
+                <TextBlock HorizontalAlignment="Left" Text="Счёт:" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Text="{Binding Score}"/>
+            </DockPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="1" VerticalAlignment="Bottom" Margin="20">
+            <DockPanel Margin="20,0,0,0">
+                <TextBlock HorizontalAlignment="Left" Text="Время:" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Text="{Binding Time2play}"/>
+            </DockPanel>
+        </StackPanel>
+        <StackPanel DataContext="{Binding Word1, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
+            <DockPanel>
+                <TextBlock Text="Russian:"/>
+                <TextBox Grid.Row="1" Grid.Column="0" IsEnabled="False" Height="23" Text="{Binding Russian}" Width="120"/>
+            </DockPanel>
+        </StackPanel>
+        <StackPanel DataContext="{Binding Word2, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1">
+            <DockPanel>
+                <TextBlock Text="English:"/>
+                <TextBox Grid.Row="1" Grid.Column="1" IsEnabled="False" Height="23" Text="{Binding English}" Width="120"/>
+            </DockPanel>
+        </StackPanel>
+        <Button Command="{Binding YesButton}" CommandParameter="True" Content="DA" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Width="75"/>
+        <Button Command="{Binding NoButton}" Content="NET" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Width="75"/>
+    </Grid>
+</Page>

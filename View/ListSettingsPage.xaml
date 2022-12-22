@@ -1,0 +1,76 @@
+﻿<Page x:Class="PagesOnScreen.View.ListSettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PagesOnScreen.ViewModels" d:DataContext="{local:ListSettingsViewModel}"
+      mc:Ignorable="d" 
+      d:DesignHeight="660" d:DesignWidth="330"
+      Title="ListSettingsPage"
+      Background="AliceBlue"
+      >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="12*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--<Button Name="LoadListButton" Content="LOAD LIST" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Click="ListLoad"/>-->
+        <Button Name="SaveButton" Command="{Binding SaveList}" Content="SAVE LIST" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" Width="75"/>
+        <ListBox Name="DictionaryList" Width="100" Height="560" ItemsSource="{Binding WordsCollection}" SelectedItem="{Binding SelectedWord}" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <DockPanel>
+                            <TextBlock Text="{Binding English}" Margin="2" ></TextBlock>
+                            <TextBlock Text="{Binding Russian}" Margin="2"></TextBlock>
+                        </DockPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <DockPanel Margin="10">
+                <TextBlock Text="English:"/>
+            </DockPanel>
+            <DockPanel Margin="10">
+                <TextBlock Text="Russian:"/>
+            </DockPanel>
+            <Button Content="Delete word" Command="{Binding DeleteWord}" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75"/>
+            <DockPanel Margin="10">
+                <TextBlock Text="English:"/>
+            </DockPanel>
+            <DockPanel Margin="10">
+                <TextBlock Text="Russian:"/>
+            </DockPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="1" DataContext="{Binding SelectedWord}">
+            <DockPanel Margin="10">
+                <TextBox Text="{Binding English, UpdateSourceTrigger=PropertyChanged}"/>
+            </DockPanel>
+            <DockPanel Margin="10">
+                <TextBox Text="{Binding Russian, UpdateSourceTrigger=PropertyChanged}"/>
+            </DockPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="1" Margin="0,73,0,0" >
+            <Button Content="Change word" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75"/>
+            <DockPanel Margin="10">
+                <TextBox Name="TextBoxEnglish" Text="{Binding EnglishWord, UpdateSourceTrigger=PropertyChanged}"/>
+            </DockPanel>
+            <!--Style="{StaticResource TextBoxTheme}"-->
+            <DockPanel Margin="10">
+                <TextBox  Name="TextBoxRussian" Text="{Binding RussianWord, UpdateSourceTrigger=PropertyChanged}"/>
+            </DockPanel>
+        </StackPanel>
+        <Button x:Name="AddWordButton" Command="{Binding AddWord}" Grid.Row="1" Grid.Column="2" Content="Add word" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75" Click="AddWordButton_Click" Margin="10"/>
+        <Label Content="Language:" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="65"/>
+        <Label Content="Translate:" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="65"/>
+        <!--// Добавить иконки языков-->
+    </Grid>
+</Page>
